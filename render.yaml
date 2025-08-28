@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: digital-scrapbook
+    env: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false  # This will be set manually in Render dashboard
+    healthCheckPath: /api/cards
