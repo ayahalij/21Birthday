@@ -20,11 +20,17 @@ const Home = () => {
   });
 
   useEffect(() => {
-    const savedName = localStorage.getItem('scrapbook_visitor_name');
-    if (!savedName) {
-      setShowNameModal(true);
+    // Safe localStorage access - only run on client side
+    if (typeof window !== 'undefined') {
+      const savedName = localStorage.getItem('scrapbook_visitor_name');
+      if (!savedName) {
+        setShowNameModal(true);
+      } else {
+        setUserName(savedName);
+      }
     } else {
-      setUserName(savedName);
+      // If running on server or localStorage not available, show name modal
+      setShowNameModal(true);
     }
     
     fetchData();
@@ -60,6 +66,12 @@ const Home = () => {
   const handleNameSubmit = (name) => {
     setUserName(name);
     setShowNameModal(false);
+    
+    // Safe localStorage access
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('scrapbook_visitor_name', name);
+    }
+    
     // Music will auto-start due to the useEffect above
   };
 
