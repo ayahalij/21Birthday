@@ -10,6 +10,12 @@ const PORT = process.env.PORT || 5000;
 // Connect to MongoDB
 connectDB();
 
+// Run seed script in production (one-time)
+if (process.env.NODE_ENV === 'production' && process.env.RUN_SEED === 'true') {
+  console.log('Running seed script...');
+  require('./seed');
+}
+
 // Middleware
 app.use(cors());
 app.use(express.json());
