@@ -1,0 +1,1206 @@
+/* ===== CHERRY BLOSSOM DIGITAL SCRAPBOOK STYLES ===== */
+
+/* Import Arabic Fonts */
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+/* CSS Custom Properties - Blush & Ivory Palette */
+:root {
+  /* Primary Palette - Blush & Ivory */
+  --primary-ivory: #faf7f4;
+  --secondary-blush: #e8c5c0;
+  --accent-vanilla: #f4e4d6;
+  --warm-brown: #5d4037;
+  --rose-gold: #d4a574;
+  
+  /* Cherry Blossom Inspired Colors */
+  --cherry-pink: #f4c2c2;
+  --soft-pink: #f8e8e7;
+  --deep-rose: #d4a4a4;
+  --petal-white: #fff8f6;
+  --branch-brown: #6d4c41;
+  
+  /* Additional Warm Neutrals */
+  --warm-beige: #f0e6d2;
+  --soft-cream: #f9f4ef;
+  --light-taupe: #e6d7c3;
+  --medium-brown: #795548;
+  
+  /* Typography - Arabic + English Fonts */
+  --font-primary: 'El Messiri', 'Playfair Display', 'Georgia', serif;
+  --font-secondary: 'Zain', 'Lato', 'Arial', sans-serif;
+  --font-script: 'El Messiri', 'Dancing Script', cursive;
+/* ===== ARABIC FONT CLASSES ===== */
+
+/* Zain Font Variants */
+.zain-extralight {
+  font-family: "Zain", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.zain-light {
+  font-family: "Zain", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.zain-regular {
+  font-family: "Zain", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.zain-bold {
+  font-family: "Zain", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.zain-extrabold {
+  font-family: "Zain", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.zain-black {
+  font-family: "Zain", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.zain-light-italic {
+  font-family: "Zain", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.zain-regular-italic {
+  font-family: "Zain", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* El Messiri Font Variants */
+.el-messiri-regular {
+  font-family: "El Messiri", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.el-messiri-medium {
+  font-family: "El Messiri", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.el-messiri-semibold {
+  font-family: "El Messiri", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.el-messiri-bold {
+  font-family: "El Messiri", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Arabic text direction support */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Mixed language content */
+.arabic-text {
+  font-family: var(--font-primary);
+  direction: rtl;
+}
+
+.english-text {
+  font-family: var(--font-secondary);
+  direction: ltr;
+}
+  --shadow-soft: 0 4px 20px rgba(93, 64, 55, 0.08);
+  --shadow-medium: 0 8px 32px rgba(93, 64, 55, 0.12);
+  --shadow-strong: 0 16px 48px rgba(93, 64, 55, 0.15);
+  --shadow-polaroid: 0 8px 24px rgba(93, 64, 55, 0.2);
+  --border-radius: 8px;
+  --border-radius-large: 16px;
+}
+
+/* ===== BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background: linear-gradient(135deg, var(--primary-ivory) 0%, var(--accent-vanilla) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--warm-brown);
+  line-height: 1.6;
+  font-size: 16px;
+  position: relative;
+}
+
+/* Cherry blossom petals floating animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(248, 200, 194, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(244, 194, 194, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(248, 232, 231, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== MAIN APP CONTAINER ===== */
+.app {
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Clothesline Background Effect */
+.app::after {
+  content: '';
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 5%, var(--branch-brown) 20%, var(--branch-brown) 80%, transparent 95%);
+  z-index: -1;
+  box-shadow: 0 2px 4px rgba(93, 64, 55, 0.1);
+}
+
+/* ===== HEADER STYLES ===== */
+.app-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 3rem 2rem;
+  background: rgba(255, 248, 246, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--secondary-blush);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cherry blossom decoration on header */
+.app-header::before {
+  content: '🌸';
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 2rem;
+  opacity: 0.7;
+  animation: gentle-sway 4s ease-in-out infinite;
+}
+
+.app-header::after {
+  content: '🌸';
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  opacity: 0.7;
+  animation: gentle-sway 4s ease-in-out infinite reverse;
+}
+
+@keyframes gentle-sway {
+  0%, 100% { transform: rotate(-5deg) translateY(0px); }
+  50% { transform: rotate(5deg) translateY(-5px); }
+}
+
+.app-header h1 {
+  font-family: var(--font-script);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  color: var(--warm-brown);
+  margin-bottom: 0.75rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(93, 64, 55, 0.1);
+  line-height: 1.2;
+}
+
+.app-header p {
+  font-size: 1.125rem;
+  color: var(--medium-brown);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
+  font-family: var(--font-primary);
+}
+
+/* ===== CONTROL BUTTONS ===== */
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.controls button {
+  padding: 1rem 2.5rem;
+  border: 2px solid var(--rose-gold);
+  border-radius: 25px;
+  background: var(--petal-white);
+  color: var(--warm-brown);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-soft);
+}
+
+.controls button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--secondary-blush), var(--cherry-pink));
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.controls button:hover::before {
+  left: 0;
+}
+
+.controls button:hover {
+  color: var(--petal-white);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ===== CARDS GRID WITH CLOTHESLINE EFFECT ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem 2rem;
+  margin-bottom: 4rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+
+/* ===== POLAROID PHOTO CARD STYLES ===== */
+.card {
+  background: var(--petal-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-polaroid);
+  transition: all 0.4s ease;
+  position: relative;
+  width: 280px;
+  margin: 0 auto;
+  transform: rotate(-2deg);
+  border: 8px solid var(--petal-white);
+}
+
+.card:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.card:nth-child(3n) {
+  transform: rotate(-1deg);
+}
+
+/* Clothespin Effect */
+.card::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 25px;
+  background: linear-gradient(135deg, var(--branch-brown), var(--medium-brown));
+  border-radius: 4px 4px 0 0;
+  box-shadow: 
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(93, 64, 55, 0.3);
+  z-index: 10;
+}
+
+/* Clothespin clip detail */
+.card::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 15px;
+  background: var(--warm-brown);
+  z-index: 11;
+}
+
+.card:hover {
+  transform: rotate(0deg) translateY(-8px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ===== CARD IMAGE (PHOTO PART) ===== */
+.card-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--light-taupe);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: sepia(5%) saturate(110%) brightness(102%) contrast(98%);
+}
+
+.card-image:hover img {
+  transform: scale(1.05);
+  filter: sepia(0%) saturate(115%) brightness(105%) contrast(100%);
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(93, 64, 55, 0.8) 0%,
+    rgba(93, 64, 55, 0.6) 40%,
+    transparent 100%
+  );
+  color: var(--petal-white);
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.card-overlay h3 {
+  font-family: var(--font-script);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.5px;
+}
+
+.card-date {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-style: italic;
+  font-family: var(--font-primary);
+}
+
+/* ===== CARD CONTENT (BOTTOM WHITE AREA) ===== */
+.card-content {
+  padding: 2rem 1.5rem 1.5rem;
+  background: var(--petal-white);
+  min-height: 180px;
+}
+
+.card-note {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--warm-brown);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-primary);
+  font-style: italic;
+  text-align: center;
+  min-height: 60px;
+}
+
+/* ===== CARD BUTTONS ===== */
+.secret-button, .comment-toggle {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  border-radius: 20px;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+
+.secret-button {
+  background: linear-gradient(135deg, var(--cherry-pink), var(--secondary-blush));
+  color: var(--warm-brown);
+  box-shadow: 0 4px 12px rgba(244, 194, 194, 0.3);
+  border: 1px solid var(--deep-rose);
+}
+
+.secret-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 194, 194, 0.4);
+  background: linear-gradient(135deg, var(--deep-rose), var(--cherry-pink));
+}
+
+.comment-toggle {
+  background: var(--soft-cream);
+  color: var(--warm-brown);
+  border: 2px solid var(--accent-vanilla);
+}
+
+.comment-toggle:hover {
+  background: var(--accent-vanilla);
+  border-color: var(--rose-gold);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ===== SECRET MESSAGE ===== */
+.secret-message {
+  background: linear-gradient(135deg, var(--secondary-blush), var(--cherry-pink));
+  color: var(--warm-brown);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: var(--font-script);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  box-shadow: inset 0 2px 4px rgba(93, 64, 55, 0.1);
+  position: relative;
+  border: 1px solid var(--deep-rose);
+}
+
+.secret-message::before {
+  content: '🌸';
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.secret-message::after {
+  content: '🌸';
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+/* ===== COMMENT SECTION ===== */
+.comment-section {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: var(--soft-pink);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--secondary-blush);
+}
+
+.comment-section textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--accent-vanilla);
+  border-radius: var(--border-radius);
+  background: var(--petal-white);
+  color: var(--warm-brown);
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 80px;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.comment-section textarea:focus {
+  outline: none;
+  border-color: var(--rose-gold);
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+}
+
+.comment-section button {
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(135deg, var(--rose-gold), var(--deep-rose));
+  color: var(--petal-white);
+  border: none;
+  border-radius: 20px;
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+}
+
+.comment-section button:hover {
+  background: linear-gradient(135deg, var(--deep-rose), var(--rose-gold));
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ===== COMMENTS LIST ===== */
+.comments-list {
+  margin-top: 1rem;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.comment {
+  background: var(--petal-white);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.8rem;
+  border-left: 4px solid var(--cherry-pink);
+  box-shadow: 0 2px 8px rgba(93, 64, 55, 0.08);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.comment-author {
+  font-weight: 600;
+  color: var(--warm-brown);
+  font-family: var(--font-primary);
+}
+
+.comment-date {
+  color: var(--medium-brown);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.comment-text {
+  color: var(--warm-brown);
+  line-height: 1.5;
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+}
+
+/* ===== RECENT COMMENTS FEED ===== */
+.recent-comments {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: rgba(255, 248, 246, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--secondary-blush);
+  position: relative;
+}
+
+.recent-comments::before {
+  content: '🌸💕🌸';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--petal-white);
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.recent-comments h3 {
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--warm-brown);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.comments-feed {
+  display: grid;
+  gap: 1rem;
+}
+
+.comment-preview {
+  padding: 1rem 1.5rem;
+  background: var(--soft-pink);
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--cherry-pink);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.comment-preview::before {
+  content: '🌸';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+
+.comment-preview:hover {
+  background: var(--accent-vanilla);
+  transform: translateX(8px);
+  box-shadow: var(--shadow-soft);
+}
+
+.comment-author {
+  font-weight: 600;
+  color: var(--warm-brown);
+  margin-right: 0.5rem;
+  font-family: var(--font-primary);
+}
+
+.comment-snippet {
+  color: var(--medium-brown);
+  font-style: italic;
+  font-family: var(--font-secondary);
+}
+
+/* ===== MODAL STYLES ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(93, 64, 55, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: var(--petal-white);
+  padding: 3rem;
+  border-radius: var(--border-radius-large);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--shadow-strong);
+  border: 3px solid var(--secondary-blush);
+  position: relative;
+}
+
+.modal-content::before {
+  content: '🌸🌸🌸';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--petal-white);
+  padding: 0 1rem;
+  font-size: 1.5rem;
+}
+
+.modal-content h2 {
+  font-family: var(--font-script);
+  color: var(--warm-brown);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.modal-content p {
+  color: var(--medium-brown);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: var(--font-primary);
+  font-style: italic;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--accent-vanilla);
+  border-radius: 25px;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: var(--font-secondary);
+  background: var(--soft-cream);
+  color: var(--warm-brown);
+  transition: all 0.3s ease;
+}
+
+.modal-content input:focus {
+  outline: none;
+  border-color: var(--rose-gold);
+  background: var(--petal-white);
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+}
+
+.modal-content button {
+  background: linear-gradient(135deg, var(--cherry-pink), var(--secondary-blush));
+  color: var(--warm-brown);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-primary);
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-soft);
+}
+
+.modal-content button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, var(--secondary-blush), var(--deep-rose));
+}
+
+/* ===== TERMINAL STYLES ===== */
+.terminal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(93, 64, 55, 0.9);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.terminal {
+  background: var(--warm-brown);
+  border: 3px solid var(--rose-gold);
+  border-radius: var(--border-radius-large);
+  width: 90%;
+  max-width: 800px;
+  height: 80%;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  box-shadow: var(--shadow-strong);
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: linear-gradient(135deg, var(--rose-gold), var(--cherry-pink));
+  color: var(--warm-brown);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.terminal-header button {
+  background: var(--warm-brown);
+  border: none;
+  color: var(--petal-white);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.terminal-header button:hover {
+  background: var(--branch-brown);
+  transform: scale(1.1);
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 1.5rem;
+  color: var(--petal-white);
+  overflow-y: auto;
+  background: var(--warm-brown);
+  line-height: 1.4;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: var(--branch-brown);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: var(--rose-gold);
+  border-radius: 4px;
+}
+
+.terminal-line {
+  margin-bottom: 0.75rem;
+  white-space: pre-wrap;
+}
+
+.terminal-line.user {
+  color: var(--cherry-pink);
+}
+
+.terminal-line.system {
+  color: var(--accent-vanilla);
+}
+
+.terminal-input {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--branch-brown);
+  border-top: 1px solid var(--rose-gold);
+}
+
+.terminal-input span {
+  color: var(--cherry-pink);
+  margin-right: 0.75rem;
+  font-weight: bold;
+}
+
+.terminal-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--petal-white);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  caret-color: var(--cherry-pink);
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--primary-ivory);
+  color: var(--warm-brown);
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.loading-screen div {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  animation: cherry-float 3s ease-in-out infinite;
+}
+
+.loading-screen p {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--medium-brown);
+}
+
+@keyframes cherry-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(5deg); }
+  66% { transform: translateY(-5px) rotate(-3deg); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+  
+  .app-header {
+    padding: 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .app-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .controls button {
+    width: 200px;
+  }
+  
+  .terminal {
+    width: 95%;
+    height: 90%;
+  }
+  
+  .modal-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .card-overlay {
+    padding: 1rem;
+  }
+  
+  .card-overlay h3 {
+    font-size: 1.2rem;
+  }
+  
+  .app-header h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes flutter {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(1deg); }
+  75% { transform: translateY(-1px) rotate(-1deg); }
+}
+
+.card {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.comment {
+  animation: slideIn 0.4s ease-out;
+}
+
+/* Cherry blossom petals floating effect */
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-100px) translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(200px) translateX(10px) rotate(90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(400px) translateX(-5px) rotate(180deg);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(600px) translateX(15px) rotate(270deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(800px) translateX(0px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Floating petals animation */
+.card:hover::before {
+  animation: flutter 2s ease-in-out infinite;
+}
+
+/* ===== ELEGANT FOCUS STYLES ===== */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--rose-gold);
+  outline-offset: 2px;
+}
+
+/* ===== SELECTION STYLES ===== */
+::selection {
+  background: var(--soft-pink);
+  color: var(--warm-brown);
+}
+
+/* ===== CUSTOM SCROLLBAR STYLES ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--accent-vanilla);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-blush);
+  border-radius: 4px;
+  border: 1px solid var(--cherry-pink);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cherry-pink);
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .controls,
+  .terminal-overlay,
+  .modal-overlay {
+    display: none !important;
+  }
+  
+  .app {
+    background: white !important;
+  }
+  
+  .card {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    transform: rotate(0deg) !important;
+  }
+  
+  .card::before,
+  .card::after {
+    display: none;
+  }
+}
+
+/* ===== ADDITIONAL CHERRY BLOSSOM DECORATIVE ELEMENTS ===== */
+
+/* Subtle cherry pattern for cards */
+.card-content::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, var(--cherry-pink) 30%, transparent 31%);
+  opacity: 0.1;
+  border-radius: 50%;
+}
+
+/* Gentle glow effect on hover for interactive elements */
+.secret-button:hover,
+.comment-toggle:hover,
+.controls button:hover {
+  box-shadow: 
+    0 0 20px rgba(244, 194, 194, 0.3),
+    var(--shadow-medium);
+}
+
+/* Special effects for cherry blossom theme */
+.app-header h1::before {
+  content: '🌸 ';
+  animation: gentle-sway 3s ease-in-out infinite;
+}
+
+.app-header h1::after {
+  content: ' 🌸';
+  animation: gentle-sway 3s ease-in-out infinite reverse;
+}
+
+/* Soft transitions for all interactive elements */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Enhanced card hover effects */
+.card:hover .card-image img {
+  filter: 
+    sepia(10%) 
+    saturate(120%) 
+    brightness(105%) 
+    contrast(102%)
+    hue-rotate(5deg);
+}
+
+/* Typography enhancements */
+.card-note::first-letter {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--rose-gold);
+  font-family: var(--font-script);
+}
+
+/* Micro-interactions */
+.comment-section textarea:hover {
+  border-color: var(--cherry-pink);
+  background: var(--soft-cream);
+}
+
+.modal-content input::placeholder {
+  color: var(--medium-brown);
+  opacity: 0.6;
+  font-style: italic;
+}
