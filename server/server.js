@@ -35,6 +35,15 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+// Health check route for Render
+app.get('/healthz', (req, res) => {
+  res.status(200).json({ 
+    status: 'healthy', 
+    message: 'Digital Scrapbook API is running!',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Root route for API testing (optional)
 app.get('/api', (req, res) => {
   res.json({ message: 'Digital Scrapbook API is running!' });
