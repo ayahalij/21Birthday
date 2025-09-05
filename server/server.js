@@ -44,6 +44,18 @@ app.get('/healthz', (req, res) => {
   });
 });
 
+// Debug route to check environment variables (temporary)
+app.get('/debug', (req, res) => {
+  res.json({
+    NODE_ENV: process.env.NODE_ENV,
+    RENDER: process.env.RENDER,
+    PORT: process.env.PORT,
+    allEnvKeys: Object.keys(process.env).filter(key => 
+      key.includes('NODE') || key.includes('RENDER') || key.includes('ENV')
+    )
+  });
+});
+
 // Root route for API testing (optional)
 app.get('/api', (req, res) => {
   res.json({ message: 'Digital Scrapbook API is running!' });
