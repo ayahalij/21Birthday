@@ -21,6 +21,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
+// Serve images from client/public in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/public')));
+}
+
 // API Routes
 app.use('/api/cards', require('./routes/cards'));
 app.use('/api/comments', require('./routes/comments'));
