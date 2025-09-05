@@ -28,6 +28,11 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
   });
+} else {
+  // Development mode - just show a message
+  app.get('/', (req, res) => {
+    res.json({ message: 'Development mode - use npm run dev' });
+  });
 }
 
 // Root route for API testing (optional)
