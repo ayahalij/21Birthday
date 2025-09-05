@@ -1,21 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-console.log('Index.js is running');
-console.log('Root element:', document.getElementById('root'));
+console.log('Starting React app...');
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-console.log('ReactDOM root created');
+// Minimal component
+function MinimalApp() {
+  return React.createElement('div', {}, 
+    React.createElement('h1', {}, 'Hello World - React is Working!'),
+    React.createElement('p', {}, 'If you see this, React is rendering correctly.')
+  );
+}
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const rootElement = document.getElementById('root');
+console.log('Root element found:', rootElement);
 
-console.log('App rendered');
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  console.log('Rendering app...');
+  root.render(React.createElement(MinimalApp));
+} else {
+  console.error('Root element not found!');
+}
 
-reportWebVitals();
+console.log('Script finished');
