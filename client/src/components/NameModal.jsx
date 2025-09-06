@@ -7,7 +7,10 @@ const NameModal = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim()) {
-      localStorage.setItem('scrapbook_visitor_name', name.trim());
+      // Safe localStorage access
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('scrapbook_visitor_name', name.trim());
+      }
       onSubmit(name.trim());
     }
   };
@@ -34,7 +37,6 @@ const NameModal = ({ onSubmit }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             autoFocus
-            
           />
           <button type="submit">دعنا نبدأ ✨</button>
         </form>
