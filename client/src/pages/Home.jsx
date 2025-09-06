@@ -14,22 +14,37 @@ const Home = () => {
   const [showTerminal, setShowTerminal] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // Debug logs
+  console.log('Home component state:', {
+    userName,
+    showNameModal,
+    loading,
+    cardsLength: cards.length
+  });
+
   const { play, pause, isPlaying, toggle, hasUserInteracted } = useAudio('/audio/ZahraAyamey.mp3', {
     loop: true,
     volume: 0.3
   });
 
   useEffect(() => {
+    console.log('useEffect running - checking localStorage');
+    
     // Safe localStorage access - only run on client side
     if (typeof window !== 'undefined') {
       const savedName = localStorage.getItem('scrapbook_visitor_name');
+      console.log('Saved name from localStorage:', savedName);
+      
       if (!savedName) {
+        console.log('No saved name, showing modal');
         setShowNameModal(true);
       } else {
+        console.log('Found saved name, setting userName');
         setUserName(savedName);
       }
     } else {
       // If running on server or localStorage not available, show name modal
+      console.log('Window not available, showing modal');
       setShowNameModal(true);
     }
     
@@ -49,21 +64,28 @@ const Home = () => {
   }, [userName, showNameModal, hasUserInteracted, isPlaying, play]);
 
   const fetchData = async () => {
+    console.log('Fetching data...');
     try {
       const [cardsResponse, commentsResponse] = await Promise.all([
         cardAPI.getAll(),
         commentAPI.getRecent()
       ]);
+      console.log('Data fetched successfully:', {
+        cards: cardsResponse.data.length,
+        comments: commentsResponse.data.length
+      });
       setCards(cardsResponse.data);
       setRecentComments(commentsResponse.data);
     } catch (error) {
       console.error('Failed to fetch data:', error);
     } finally {
       setLoading(false);
+      console.log('Loading finished');
     }
   };
 
   const handleNameSubmit = (name) => {
+    console.log('Name submitted:', name);
     setUserName(name);
     setShowNameModal(false);
     
@@ -81,6 +103,7 @@ const Home = () => {
   };
 
   if (loading) {
+    console.log('Rendering loading screen');
     return (
       <div className="loading-screen">
         <motion.div
@@ -94,8 +117,15 @@ const Home = () => {
     );
   }
 
+  console.log('Rendering main app, showNameModal:', showNameModal);
+
   return (
     <div className="app">
+      {/* Debug info visible on screen */}
+      <div style={{ position: 'fixed', top: 0, right: 0, background: 'red', color: 'white', padding: '10px', zIndex: 9999, fontSize: '12px' }}>
+        Debug: showModal={showNameModal.toString()}, userName="{userName}", loading={loading.toString()}
+      </div>
+      
       {showNameModal && <NameModal onSubmit={handleNameSubmit} />}
       
       <header className="app-header">
@@ -109,7 +139,6 @@ const Home = () => {
         </motion.div>
         
         <div className="controls">
-          
           <button onClick={() => setShowTerminal(true)} className="terminal-button">
             🤍 لنرى هنا أولًا 
           </button>
