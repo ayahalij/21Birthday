@@ -9,8 +9,7 @@
     "client": "cd client && npm start",
     "install-deps": "npm install && cd client && npm install && cd ../server && npm install",
     "build": "cd client && npm run build",
-    "start": "cd server && npm start"
-    
+    "start": "NODE_ENV=production cd server && node server.js"
   },
   "keywords": [],
   "author": "",
